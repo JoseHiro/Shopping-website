@@ -1,7 +1,7 @@
   const express = require('express');
   const bodyParser = require('body-parser');
   const path = require('path');
-  // const expressHbs = require('express-handlebars');
+  const db = require('./util/database');
 
   const app = express();
 
@@ -11,8 +11,17 @@
   const adminRoutes = require('./routes/admin');
   const shopRoutes = require('./routes/shop');
 
+
+  // db.execute('SELECT * FROM products')
+  // .then((result) => {
+  //   console.log(result[0]);
+  // })
+  // .catch(result => {
+  //   console.log(result);
+  // });
+
   // controller
-  const error = require('./controllers/404')
+  const error = require('./controllers/404');
 
   app.use(bodyParser.urlencoded({extended: false}));
   // app.use(express.static('public'))
