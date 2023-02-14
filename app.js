@@ -1,7 +1,7 @@
   const express = require('express');
   const bodyParser = require('body-parser');
   const path = require('path');
-  const mongoConnect = require('./util/database').mongoConnect;
+  const mongoose = require('mongoose');
   const User = require('./models/user');
   const app = express();
 
@@ -19,9 +19,9 @@
   app.use(express.static(path.join(__dirname, 'public')))
 
   app.use((req, res, next) => {
-    User.findById('63e53a6fb525f6da5b3b05a7')
+    User.findById('63e85aa863041ebe5c20095a')
     .then(user => {
-      req.user = new User(user.name, user.email, user.cart, user._id,);
+      req.user = user;
       next();
     })
     .catch(err => console.log(err));
@@ -32,7 +32,23 @@
 
   app.use(error.pageNotFound);
 
-  // syncs the table that you define in the database.js file into db
-  mongoConnect( ()=> {
+  mongoose
+  .connect('mongodb+srv://JoseHiro:goal@cluster0.qzoei47.mongodb.net/shop?retryWrites=true&w=majority')
+  .then(result => {
+    User.findOne().then(user => {
+      if(!user) {
+        const user = new User({
+          name: "Josey",
+          email: "aaa@aaa",
+          cart: {
+            items: []
+          }
+        });
+      }
+      user.save();
+    });
     app.listen(3000);
-  });
+  })
+  .catch(err => {
+    console.log(err);
+  })
