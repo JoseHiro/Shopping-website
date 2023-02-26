@@ -1,5 +1,19 @@
 const bcrypt = require('bcryptjs');
+const path = require('path');
+const dotenv = require('dotenv');
+// dotenv.config({path: path.join(__dirname, "../.env")});
+dotenv.config("../.env");
 const User = require('../models/user');
+const nodemailer = require("nodemailer");
+
+const transporter = nodemailer.createTransport({
+  service : process.env.SERVER_NAME,
+  auth : {
+      user : process.env.USER_NAME,
+      pass : process.env.PASSWORD
+  }
+})
+
 
 exports.getLogin = (req, res, next) => {
   let message = req.flash('error');
@@ -80,6 +94,19 @@ exports.postSignup = (req, res, next) => {
     })
     .then(result => {
       res.redirect('/login');
+      transporter.sendMail(
+        {
+          from : process.env.USER_NAME,
+          to: email,
+          subject: "Reset password",
+          text: "You are signed in"
+        }
+      ).catch(err => {
+        console.log(err);
+      })
+    })
+    .catch(err => {
+      console.log(err);
     })
   })
   .catch(err =>{
