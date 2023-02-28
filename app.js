@@ -1,5 +1,4 @@
 const path = require('path');
-
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
@@ -7,12 +6,13 @@ const session = require('express-session');
 const MongoDBStore = require('connect-mongodb-session')(session);
 const csrf = require('csurf');
 const flash = require('connect-flash');
+const dotenv = require('dotenv');
+dotenv.config('.env');
 
 const error = require('./controllers/404');
 const User = require('./models/user');
 
-const MONGODB_URI =
-  '';
+const MONGODB_URI = process.env.DB_PASS;
 
 const app = express();
 const store = new MongoDBStore({
