@@ -20,7 +20,7 @@ router.get('/products', isAuth, adminController.getProducts);
 router.post('/add-product',
       [
         check('title').isString().isLength({min: 3}).trim(),
-        check('imageUrl', "Use a valid URL").isURL(),
+        // check('imageUrl', "Use a valid URL").isURL(),
         check('price', "Set at least more than 1 for price").isFloat({min: 1}),
         check('description').isLength({min: 3, max: 400}).trim(),
       ],
@@ -31,7 +31,7 @@ router.get('/edit-product/:productId', isAuth, adminController.getEditProduct);
 router.post('/edit-product',
       [
         check('title').isString().isLength({min: 3}).trim(),
-        check('imageUrl', "Use a valid URL").isURL(),
+        // check('imageUrl', "Use a valid URL").isURL(),
         check('price', "Set at least more than 1 for price").isFloat(),
         check('description').isLength({min: 3, max: 400}).trim(),
       ],
