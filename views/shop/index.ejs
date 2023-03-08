@@ -31,9 +31,10 @@
               </div>
             </article>
         <% } %>
-    </div>
+      </div>
+      <%- include('../includes/pagination.ejs', {currentPage: currentPage, nextPage: nextPage, previousPage: previousPage, lastPage:lastPage, hasNextPage: hasNextPage, hasPreviousPage: hasPreviousPage}) %>
     <% } else { %>
-      <h1>My Products</h1
+      <h1>My Products</h1>
       <p>List of all the products...</p>
     <% } %>
 
