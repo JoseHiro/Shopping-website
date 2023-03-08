@@ -248,6 +248,26 @@ form {
   color: red;
 }
 
+.pagination {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.pagination a{
+  text-decoration: none;
+  color: #00695c;
+  padding: 0.5rem;
+  border: 1px solid #00695c;
+  margin: 0 1rem;
+}
+
+.pagination a:hover,
+.pagination a:active,
+.pagination a.active {
+  background: #00695c;
+  color: white;
+}
+
 @media (min-width: 768px) {
   .main-header__nav {
     display: flex;
@@ -261,71 +281,3 @@ form {
     display: none;
   }
 }
-
-
-
-
-/*
-.add-control .checkbox {
-  display: none;
-}
-
-
-.add-control .action-close #close:checked ~ .btn {
-  display: none;
-}
-.add-control .action-close #close:checked ~ .box {
-  display: none;
-}
-
-
-.close-btn {
-  color:
-#fff;
-  background:
-rgba(127, 194, 239, .5);
-  padding: .3em .5em;
-  border-radius: .3em;
-  text-align: center;
-  display: table;
-  cursor: pinter;
-}
-.close-btn:hover {
-  cursor: pinter;
-}
-.close-btn:active {
-  background:
-rgb(127, 194, 239);
-}
-.box {
-  border: 2px solid
-#d685b0;
-  border-radius: .3em;
-  height: 200px;
-}
-
-.action-close {
-  position: relative;
-  margin-top: 2em;
-}
-.action-close .close-btn {
-  position: absolute;
-  right: 0;
-  top: -1em;
-}
-.action-close .box {
-  margin-bottom: 2em;
-  border: 2px solid
-rgb(127, 194, 239);
-}
-
-.add-control .checkbox {
-  display: none;
-}
-
-.add-control .action-close #close:checked ~ .close-btn {
-  display: none;
-}
-.add-control .action-close #close:checked ~ .close-box {
-  display: none;
-} */ 
