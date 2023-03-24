@@ -1,11 +1,11 @@
 const fs = require('fs')
-const dotenv = require('dotenv');
-dotenv.config("../.env");
+// const dotenv = require('dotenv');
+// dotenv.config("../.env");
 const path = require('path');
 const PDFDocument = require('pdfkit');
 const Product = require('../models/product');
 const Order = require('../models/order');
-const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
+const stripe = require('stripe')(process.env.STRIPE_KEY);
 
 const ITEMS_PER_PAGE = 2;
 
