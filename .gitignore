@@ -1,2 +1,6 @@
 .env
 app.js
+nodemon.json
+server.cert
+server.key
+node_modules
