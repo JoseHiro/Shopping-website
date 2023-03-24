@@ -1,8 +1,8 @@
 {
   "env": {
-    "MONGO_USER": "messi10",
-    "MONGO_PASSWORD": "goal",
-    "MONGO_DEFAULT_DETABASE": "shop",
-    "STRIPE_KEY": "pk_test_51MjVj5IFI0Qt871CcUNrK8c6yBdlhJudWD7HLgm2StuMJhZWI1Zf7o049rRglHlbE7eMN9tPIN6d07q57usUcWog00rxSm88bL"
+    "MONGO_USER": "",
+    "MONGO_PASSWORD": "",
+    "MONGO_DEFAULT_DETABASE": "",
+    "STRIPE_KEY": ""
   }
 }
