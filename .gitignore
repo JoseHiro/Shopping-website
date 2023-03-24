@@ -1,2 +1,4 @@
 .env
 app.js
+package.json
+nodemon.json

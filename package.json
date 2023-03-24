@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "main": "app.js",
+  "engines": {
+    "node": "16.15.1"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "MONGO_USER=messi10 MONGO_PASSWORD=goal MONGO_DEFAULT_DETABASE=shop STRIPE_KEY=pk_test_51MjVj5IFI0Qt871CcUNrK8c6yBdlhJudWD7HLgm2StuMJhZWI1Zf7o049rRglHlbE7eMN9tPIN6d07q57usUcWog00rxSm88bL node app.js",
