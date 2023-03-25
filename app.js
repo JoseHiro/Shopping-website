@@ -1,6 +1,6 @@
 const path = require('path');
 const fs = require('fs');
-// const https = require('https')
+const https = require('https')
 
 const express = require('express');
 const bodyParser = require('body-parser');
@@ -13,19 +13,17 @@ const multer = require('multer');
 const helmet = require('helmet');
 const compression = require('compression');
 const morgan = require('morgan');
-// const dotenv = require('dotenv');
-// dotenv.config('.env');
+const dotenv = require('dotenv');
+dotenv.config('.env');
 
-const MONGO_DB = `mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PASSWORD}@cluster0.qzoei47.mongodb.net/${process.env.MONGO_DEFAULT_DETABASE}`
+const MONGODB_URI = process.env.DB_PASS
 
 const errorController = require('./controllers/error');
 const User = require('./models/user');
 
-// const MONGODB_URI = process.env.DB_PASS;
-
 const app = express();
 const store = new MongoDBStore({
-  uri: MONGO_DB,
+  uri: MONGODB_URI,
   collection: 'sessions'
 });
 
@@ -33,7 +31,6 @@ const csrfProtection = csrf();
 
 // const privateKey = fs.readFileSync('server.key');
 // const certificate = fs.readFileSync('server.cert')
-
 
 const fileStorage = multer.diskStorage({
   destination: (req, file, cb) => {
@@ -120,7 +117,7 @@ app.use((error, req, res, next)=> {
 })
 
 mongoose
-.connect(MONGO_DB)
+.connect(MONGODB_URI)
 .then(result => {
   // https.createServer({key: privateKey, cert: certificate}, app)
   // .listen(process.env.PORT || 3000);
@@ -130,4 +127,3 @@ mongoose
 .catch(err => {
   console.log(err);
 })
-

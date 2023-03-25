@@ -1,10 +1,10 @@
 const crypto = require('crypto');
 const bcrypt = require('bcryptjs');
-// const dotenv = require('dotenv');
+const dotenv = require('dotenv');
 const User = require('../models/user');
 const nodemailer = require("nodemailer");
 const { validationResult } = require('express-validator/check')
-// dotenv.config("../.env");
+dotenv.config("../.env");
 
 const transporter = nodemailer.createTransport({
   service : process.env.SERVER_NAME,

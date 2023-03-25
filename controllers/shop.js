@@ -1,6 +1,6 @@
 const fs = require('fs')
-// const dotenv = require('dotenv');
-// dotenv.config("../.env");
+const dotenv = require('dotenv');
+dotenv.config("../.env");
 const path = require('path');
 const PDFDocument = require('pdfkit');
 const Product = require('../models/product');
