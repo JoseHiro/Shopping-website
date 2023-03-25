@@ -255,6 +255,7 @@ exports.getInvoice = (req, res, next) => {
     pdfDoc.pipe(fs.createWriteStream(invoicePath));
     pdfDoc.pipe(res);
 
+
     pdfDoc.fontSize(26).text('Invoice', {
       underline: true
     });
