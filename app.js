@@ -16,7 +16,7 @@ const morgan = require('morgan');
 const dotenv = require('dotenv');
 dotenv.config('.env');
 
-const MONGODB_URI = process.env.DB_PASS
+const MONGODB_URI = process.env.DB
 
 const errorController = require('./controllers/error');
 const User = require('./models/user');
