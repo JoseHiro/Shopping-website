@@ -1,7 +1,6 @@
 const path = require('path');
 const fs = require('fs');
-// const https = require('https')
-
+const https = require('https')
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
@@ -13,10 +12,10 @@ const multer = require('multer');
 const helmet = require('helmet');
 const compression = require('compression');
 const morgan = require('morgan');
-// const dotenv = require('dotenv');
-// dotenv.config('.env');
+const dotenv = require('dotenv');
+dotenv.config('.env');
 
-const MONGO_DB = `mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PASSWORD}@cluster0.qzoei47.mongodb.net/${process.env.MONGO_DEFAULT_DETABASE}`
+const MONGO_DB = process.env.DB_PASS;
 
 const errorController = require('./controllers/error');
 const User = require('./models/user');
@@ -130,4 +129,3 @@ mongoose
 .catch(err => {
   console.log(err);
 })
-
